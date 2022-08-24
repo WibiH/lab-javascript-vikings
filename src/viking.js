@@ -21,9 +21,9 @@ class Viking extends Soldier {
   receiveDamage(damage) {
     this.health -= damage;
     if (this.health > 0) {
-      return `${name} has received ${damage} points of damage`;
+      return `${this.name} has received ${damage} points of damage`;
     } else {
-      return `${Viking.name} has died in act of combat`;
+      return `${this.name} has died in act of combat`;
     }
   }
   battleCry() {
@@ -32,7 +32,44 @@ class Viking extends Soldier {
 }
 
 // Saxon
-class Saxon {}
+class Saxon extends Soldier {
+  receiveDamage(damage) {
+    this.health -= damage;
+    if (this.health > 0) {
+      return `A Saxon has received DAMAGE ${damage} points of damage`;
+    } else {
+      return `A Saxon has died in combat`;
+    }
+  }
+}
 
 // War
-class War {}
+class War {
+  constructor() {
+    this.vikingArmy = [];
+    this.saxonArmy = [];
+  }
+
+  addViking(Viking) {
+    this.vikingArmy.push(Viking);
+  }
+
+  addSaxon(Saxon) {
+    this.saxonArmy.push(Saxon);
+  }
+
+  vikingAttack() {
+    const goViking = Saxon.receiveDamage(damage){
+      damage = Viking.strength
+    }
+
+    if(Saxon.health <= 0){
+      this.saxonArmy.pop(Saxon)
+    }
+
+    return goViking;
+  }
+
+  saxonAttack() {}
+  showStatus() {}
+}
